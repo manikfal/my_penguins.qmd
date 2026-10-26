@@ -1,5 +1,6 @@
 ---
 title: "my_penguins"
+author: "Maneli Nikfal (mn29844)"
 ---
 
 ## Quarto
@@ -7,5 +8,21 @@ title: "my_penguins"
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
 ```{r}
-1 + 1
+library(tidyverse)
+library(palmerpenguins)
+```
+
+```{r}
+summary(penguins)
+```
+
+```{r}
+penguins |>
+  ggplot(mapping = aes(x = species, y = body_mass_g)) +
+  geom_boxplot() +
+  labs(
+    title = "Body mass by species",
+    x = "Species",
+    y = "Body mass"
+  )
 ```
